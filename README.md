@@ -15,7 +15,7 @@ pip2 install -U git+https://github.com/kalmanolah/pos-display-cli.git
 From the command line:
 
 ```
-$ pos-display-cli --device /dev/ttyUSB0 --baud-rate 9600 --timeout 2 '{'line1': 'Hi'}'
+$ pos-display-cli --device /dev/ttyUSB0 --baud-rate 9600 --timeout 2 '["line1", "line2"]'
 ```
 
 ### Dependencies
