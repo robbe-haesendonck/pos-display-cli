@@ -1,4 +1,5 @@
 """Main module."""
+import sys
 from loguru import logger
 import argparse
 
@@ -19,7 +20,9 @@ def main():
     parser.add_argument('-v', '--version', action='version', version='%(prog)s ' + __VERSION__)
     parser.add_argument('text_json', type=str)
     args = parser.parse_args()
-
+    if (args.debug == False):
+        logger.remove()
+        logger.add(sys.stderr, level="INFO")
     device = CustomerDisplayDriver(args.device, args.baud_rate, args.timeout)
     device.send_text_customer_display(args.text_json)
 
