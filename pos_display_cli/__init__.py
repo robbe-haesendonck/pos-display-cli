@@ -22,7 +22,7 @@ def main():
     args = parser.parse_args()
 
     device = CustomerDisplayDriver(args.device, args.baud_rate, args.timeout)
-    device.send_text_customer_display(args.text_json.decode('UTF-8'))
+    device.send_text_customer_display(args.text_json)
 
 
 if __name__ == '__main__':

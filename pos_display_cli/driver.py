@@ -35,7 +35,7 @@ import logging
 import simplejson
 import time
 from threading import Thread, Lock
-from Queue import Queue
+import queue
 from unidecode import unidecode
 from serial import Serial
 
@@ -50,7 +50,7 @@ class CustomerDisplayDriver(Thread):
     def __init__(self, device='/dev/ttyUSB0', baud_rate=9600, timeout=2):
         """Constructor."""
         Thread.__init__(self)
-        self.queue = Queue()
+        self.queue = queue.Queue()
         self.lock = Lock()
         self.status = {'status': 'connecting', 'messages': []}
         self.device_name = device
@@ -148,8 +148,8 @@ class CustomerDisplayDriver(Thread):
 
     def serial_write(self, text):
         """Write a serial string to the display."""
-        assert isinstance(text, str), 'text must be a string'
-        self.serial.write(text)
+        # assert isinstance(text, str), 'text must be a string'
+        self.serial.write(text.encode())
 
     def send_text_customer_display(self, text_to_display):
         """
@@ -178,7 +178,7 @@ class CustomerDisplayDriver(Thread):
             self.setup_customer_display()
             self.clear_customer_display()
             self.display_text(lines)
-        except Exception, e:
+        except Exception as e:
             logger.error('Exception in serial connection: %s' % str(e))
         finally:
             if self.serial:

@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 """Setup module."""
 from setuptools import setup, find_packages
@@ -11,7 +11,7 @@ def read(fname):
 
 setup(
     name='pos-display-cli',
-    version='0.0.1',
+    version='0.0.2',
     description='pos-display-cli is a command-line utility for printing to a pos display',
     long_description=read('README.md'),
     author='Kalman Olah',
@@ -28,6 +28,7 @@ setup(
     install_requires=[
         'simplejson',
         'unidecode',
+        'pyserial'
     ],
     entry_points={
         'console_scripts': [
