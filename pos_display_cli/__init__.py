@@ -1,12 +1,11 @@
 """Main module."""
-import logging
+from loguru import logger
 import argparse
 
 from .driver import CustomerDisplayDriver
 
 
-logger = logging.getLogger(__name__)
-__VERSION__ = '0.0.1'
+__VERSION__ = '0.0.2'
 
 
 def main():

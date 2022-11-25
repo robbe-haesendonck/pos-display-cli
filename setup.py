@@ -28,7 +28,8 @@ setup(
     install_requires=[
         'simplejson',
         'unidecode',
-        'pyserial'
+        'pyserial',
+        'loguru'
     ],
     entry_points={
         'console_scripts': [

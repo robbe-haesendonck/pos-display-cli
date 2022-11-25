@@ -31,16 +31,13 @@ some pep8 cleanup and openerp decoupling.
 ##############################################################################
 
 
-import logging
+from loguru import logger
 import simplejson
 import time
 from threading import Thread, Lock
 import queue
 from unidecode import unidecode
 from serial import Serial
-
-
-logger = logging.getLogger(__name__)
 
 
 class CustomerDisplayDriver(Thread):
